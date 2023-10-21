@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E3B8B8"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -23,8 +24,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Choose Hobbies"
-        android:paddingTop="8dp"/>
+        android:paddingTop="8dp"
+        android:text="Choose Hobbies" />
 
     <CheckBox
         android:id="@+id/chessCheckBox"
@@ -54,8 +55,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select Your Personality"
         android:paddingTop="8dp"
+        android:text="Select Your Personality"
         tools:ignore="HardcodedText" />
 
     <RadioGroup
@@ -92,7 +93,9 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SUBMIT FORM"
+        android:background="#1F8124"
         android:onClick="submitData"
+        android:text="SUBMIT FORM"
+        android:textColorLink="#F1EDED"
         tools:ignore="HardcodedText" />
 </LinearLayout>

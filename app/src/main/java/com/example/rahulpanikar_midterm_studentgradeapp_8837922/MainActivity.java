@@ -13,7 +13,14 @@ public class MainActivity extends AppCompatActivity {
     private EditText studentIdEditText, fullNameEditText, learningExperienceEditText;
     private CheckBox chessCheckBox, cyclingCheckBox, swimmingCheckBox, programmingCheckBox;
     private RadioGroup personalityRadioGroup;
+/*
 
+In the onCreate strategy for an Android movement,
+this code instates UI components by finding their particular perspectives utilizing their IDs from the XML design document related with the action.
+ These components incorporate text fields, checkboxes, radio buttons, and so forth.,
+ empowering them to be gotten to and controlled inside the action.
+
+ */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +37,12 @@ public class MainActivity extends AppCompatActivity {
 
         personalityRadioGroup = findViewById(R.id.personalityRadioGroup);
     }
+
+
+/*This code separates client input, including understudy data, side interests, character type,
+and opportunity for growth,
+then makes a purpose to pass this information to one more action for show.*/
+
 
     public void submitData(View view) {
         String studentIdValue = studentIdEditText.getText().toString();
@@ -57,7 +70,15 @@ public class MainActivity extends AppCompatActivity {
         } else if (selectedPersonalityId == R.id.ambivertRadioButton) {
             personalityTypeValue = "Ambivert";
         }
+/*
 
+This code makes an Aim to explore from the ongoing MainActivity to the SecondDisplayActivity.
+It adds different information values as additional items to the plan utilizing key-esteem matches.
+These qualities incorporate understudy ID, complete name, character type, side interests, and growth opportunity.
+ At last, it begins the new action utilizing startActivity(intent),
+ passing the information to be shown in the subsequent movement.
+
+ */
         Intent intent = new Intent(MainActivity.this, SecondDisplayActivity.class);
         intent.putExtra("studentId", studentIdValue);
         intent.putExtra("fullName", fullNameValue);
