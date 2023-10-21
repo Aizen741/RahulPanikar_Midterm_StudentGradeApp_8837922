@@ -1,60 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="700dp"
     android:padding="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="800dp"
         android:orientation="vertical">
 
         <EditText
             android:id="@+id/studentId"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Student ID" />
+            android:layout_height="48dp"
+            android:hint="Student ID"
+            tools:ignore="HardcodedText,TextFields"
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/fullName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Full Name" />
+            android:layout_height="48dp"
+            android:hint="Full Name"
+            tools:ignore="HardcodedText,TextFields"
+            android:importantForAutofill="no" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Choose Hobbies" />
+            android:text="Choose Hobbies"
+            tools:ignore="HardcodedText" />
 
         <CheckBox
             android:id="@+id/chess"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Chess" />
+            android:text="Chess"
+            tools:ignore="HardcodedText" />
 
         <CheckBox
             android:id="@+id/cycling"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cycling" />
+            android:text="Cycling"
+            tools:ignore="HardcodedText" />
 
         <CheckBox
             android:id="@+id/swimming"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Swimming" />
+            android:text="Swimming"
+            tools:ignore="HardcodedText" />
 
         <CheckBox
             android:id="@+id/programming"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Programming" />
+            android:text="Programming"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Select Your Personality" />
+            android:text="Select Your Personality"
+            tools:ignore="HardcodedText" />
 
         <RadioGroup
             android:id="@+id/personalityGroup"
@@ -65,32 +76,38 @@
                 android:id="@+id/introvert"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Introvert" />
+                android:text="Introvert"
+                tools:ignore="HardcodedText" />
 
             <RadioButton
                 android:id="@+id/extrovert"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Extrovert" />
+                android:text="Extrovert"
+                tools:ignore="HardcodedText" />
 
             <RadioButton
                 android:id="@+id/ambivert"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Ambivert" />
+                android:text="Ambivert"
+                tools:ignore="HardcodedText" />
         </RadioGroup>
 
         <EditText
             android:id="@+id/learningExperience"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Type Your Learning Experience" />
+            android:layout_height="48dp"
+            android:hint="Type Your Learning Experience"
+            android:importantForAutofill="no"
+            tools:ignore="HardcodedText,TextFields" />
 
         <Button
             android:id="@+id/submitForm"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="SUBMIT FORM" />
+            android:layout_width="359dp"
+            android:layout_height="48dp"
+            android:text="SUBMIT FORM"
+            tools:ignore="HardcodedText" />
 
     </LinearLayout>
 </ScrollView>
