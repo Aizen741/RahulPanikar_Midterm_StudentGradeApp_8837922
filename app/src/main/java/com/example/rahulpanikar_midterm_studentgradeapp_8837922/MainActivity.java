@@ -1,68 +1,69 @@
 package com.example.rahulpanikar_midterm_studentgradeapp_8837922;
 
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText studentId, fullName, learningExperience;
-    CheckBox chess, cycling, swimming, programming;
-    RadioGroup personalityGroup;
-    Button submitForm;
+    private EditText studentIdEditText, fullNameEditText, learningExperienceEditText;
+    private CheckBox chessCheckBox, cyclingCheckBox, swimmingCheckBox, programmingCheckBox;
+    private RadioGroup personalityRadioGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main); // Assuming your XML file is named activity_main.xml
+        setContentView(R.layout.activity_main);
 
-        // Initialize views
-        studentId = findViewById(R.id.studentId);
-        fullName = findViewById(R.id.fullName);
-        learningExperience = findViewById(R.id.learningExperience);
-        chess = findViewById(R.id.chess);
-        cycling = findViewById(R.id.cycling);
-        swimming = findViewById(R.id.swimming);
-        programming = findViewById(R.id.programming);
-        personalityGroup = findViewById(R.id.personalityGroup);
-        submitForm = findViewById(R.id.submitForm);
+        studentIdEditText = findViewById(R.id.studentIdEditText);
+        fullNameEditText = findViewById(R.id.fullNameEditText);
+        learningExperienceEditText = findViewById(R.id.learningExperienceEditText);
 
-        submitForm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Extract values
-                String id = studentId.getText().toString();
-                String name = fullName.getText().toString();
-                String experience = learningExperience.getText().toString();
+        chessCheckBox = findViewById(R.id.chessCheckBox);
+        cyclingCheckBox = findViewById(R.id.cyclingCheckBox);
+        swimmingCheckBox = findViewById(R.id.swimmingCheckBox);
+        programmingCheckBox = findViewById(R.id.programmingCheckBox);
 
-                StringBuilder hobbies = new StringBuilder();
-                if(chess.isChecked()) {
-                    hobbies.append("Chess ");
-                }
-                if(cycling.isChecked()) {
-                    hobbies.append("Cycling ");
-                }
-                if(swimming.isChecked()) {
-                    hobbies.append("Swimming ");
-                }
-                if(programming.isChecked()) {
-                    hobbies.append("Programming ");
-                }
+        personalityRadioGroup = findViewById(R.id.personalityRadioGroup);
+    }
 
-                int selectedPersonalityId = personalityGroup.getCheckedRadioButtonId();
-                RadioButton selectedPersonality = findViewById(selectedPersonalityId);
-                String personality = selectedPersonality.getText().toString();
+    public void submitData(View view) {
+        String studentIdValue = studentIdEditText.getText().toString();
+        String fullNameValue = fullNameEditText.getText().toString();
+        String learningExperienceValue = learningExperienceEditText.getText().toString();
 
-                // Display or store the extracted values
-                Toast.makeText(MainActivity.this, "Student ID: " + id + "\nName: " + name + "\nHobbies: " + hobbies + "\nPersonality: " + personality + "\nExperience: " + experience, Toast.LENGTH_LONG).show();
-            }
-        });
+        StringBuilder hobbiesValue = new StringBuilder();
+        if (chessCheckBox.isChecked()) hobbiesValue.append("Chess, ");
+        if (cyclingCheckBox.isChecked()) hobbiesValue.append("Cycling, ");
+        if (swimmingCheckBox.isChecked()) hobbiesValue.append("Swimming, ");
+        if (programmingCheckBox.isChecked()) hobbiesValue.append("Programming");
+
+        // Removing any trailing comma and space
+        if (hobbiesValue.toString().endsWith(", ")) {
+            hobbiesValue.delete(hobbiesValue.length() - 2, hobbiesValue.length());
+        }
+
+        int selectedPersonalityId = personalityRadioGroup.getCheckedRadioButtonId();
+        String personalityTypeValue = "";
+
+        if (selectedPersonalityId == R.id.introvertRadioButton) {
+            personalityTypeValue = "Introvert";
+        } else if (selectedPersonalityId == R.id.extrovertRadioButton) {
+            personalityTypeValue = "Extrovert";
+        } else if (selectedPersonalityId == R.id.ambivertRadioButton) {
+            personalityTypeValue = "Ambivert";
+        }
+
+        Intent intent = new Intent(MainActivity.this, SecondDisplayActivity.class);
+        intent.putExtra("studentId", studentIdValue);
+        intent.putExtra("fullName", fullNameValue);
+        intent.putExtra("personalityType", personalityTypeValue);
+        intent.putExtra("hobbies", hobbiesValue.toString());
+        intent.putExtra("learningExperience", learningExperienceValue);
+        startActivity(intent);
     }
 }
